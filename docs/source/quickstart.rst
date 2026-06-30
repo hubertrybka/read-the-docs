@@ -9,8 +9,9 @@ Installation
 ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
 
 First, clone the repository: 
-.. code-block:: console
 
+.. code-block:: console
+   
    git clone https://github.com/admet-xspec/admet-xspec.git
    cd admet-xspec
 
@@ -21,14 +22,14 @@ Follow the "Install uv" step at the [official uv docs](https://docs.astral.sh/uv
 Then, have uv register a .venv within the current directory and install packages from the lockfile:
 
 .. code-block:: console
-
+   
    uv init .
    uv sync
 
 Running example with uv:
 
 .. code-block:: console
-
+   
    uv run process.py --cfg configs/examples/train_lgbm.gin
 
 Conda setup
