@@ -6,10 +6,15 @@ Welcome to ADMET-Xspec's documentation
 researchers assess and understand the translatability of ADMET parameters measured in non-human assays in the context
 of human drug development.**
 
-ADMET-XSpec implements a comprehensive workflow that includes data preprocessing, feature engineering, model training,
-and evaluation. ADMET-XSpec allows for the evaluation of predictive models trained on human data augmented by non-human
-data points, leveraging a selection of machine learning algorithms, feature extraction techniques and additional
-data preprocessing steps.
+ADMET-XSpec implements:
+   * Pre-processing and curation of molecular datasets for ADMET tasks.
+   * A selection of:
+      - train-test splitting strategies
+      - molecular representations
+      - ML algorithms
+   * Both single-task and multiend training
+   * Exclusively ''gin'' config-based interface for easy preparation of large experiments
+   * Predictions for new samples using previously trained models
 
 Check out the :doc:`quickstart` section for installation instructions.
 
