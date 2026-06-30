@@ -76,29 +76,18 @@ Take a look at ''configs/examples/train_lgbm.gin'', as it's structure correspond
 3. I want to test if training multiend predictor
 
 .. note::
-   In ADMET-Xspec, there is a possibility to train multiend predictors of heterogenous data. Each data point, represented by a vector 
+   In ADMET-Xspec, there is a possibility to train multiend predictors on heterogenous data. Each data point, represented by a vector 
+   Let :math:`\mathcal{D} = \{(\mathbf{x}^{(k)}, y^{(k)})\}_{k=1}^{m}` be a dataset of
+   :math:`m` samples with features :math:`\mathbf{x}^{(k)} \in \mathbb{R}^d` and labels
+   :math:`y^{(k)} \in \{1, \dots, n\}`.
+
+
+
+Each label is one-hot encoded via :math:`\mathbf{e}_y \in \{0,1\}^n`, where
+:math:`(\mathbf{e}_y)_i = \delta_{iy}`. The augmented input is the concatenation
 
 .. math::
 
-   Let $\mathcal{D} = \{(\mathbf{x}^{(k)}, y^{(k)})\}_{k=1}^{m}$ denote a dataset of $m$ samples, where $\mathbf{x}^{(k)} \in \mathbb{R}^d$ is a $d$-dimensional feature vector and $y^{(k)} \in \mathcal{Y} = \{1, \dots, n\}$ is its associated categorical label drawn from a set of $n$ classes.
-
-   We encode each label $y \in \mathcal{Y}$ using the standard one-hot encoding map $\phi: \mathcal{Y} \to \{0,1\}^n$,
-
-   $$\phi(y) = \mathbf{e}_y = \big(\delta_{1y}, \delta_{2y}, \dots, \delta_{ny}\big)^\top,$$
-
-   where $\delta_{iy}$ denotes the Kronecker delta, so that $\mathbf{e}_y$ has a $1$ in its $y$-th entry and $0$ elsewhere.
-
-   For each sample, we construct an augmented representation $\tilde{\mathbf{x}} \in \mathbb{R}^{d+n}$ by concatenating the feature vector with the one-hot label encoding:
-
-   $$\tilde{\mathbf{x}}^{(k)} = \mathbf{x}^{(k)} \oplus \mathbf{e}_{y^{(k)}} = \begin{bmatrix} \mathbf{x}^{(k)} \\ \mathbf{e}_{y^{(k)}} \end{bmatrix}, \qquad k = 1, \dots, m,$$
-
-   where $\oplus$ denotes vector concatenation. The resulting dataset $\tilde{\mathcal{D}} = \{\tilde{\mathbf{x}}^{(k)}\}_{k=1}^m \subset \mathbb{R}^{d+n}$ embeds label information directly into the input representation, which we use as input to [your model/method] in the following sections.
-
-
-   **Notes on conventions used:**
-   - Bold lowercase ($\mathbf{x}$, $\mathbf{e}_y$) for vectors — standard in ML papers (vs. plain italics for scalars).
-   - Calligraphic font ($\mathcal{D}$, $\mathcal{Y}$) for sets/datasets.
-   - Superscript $(k)$ for sample indexing, to avoid clashing with subscripts used for vector components.
-   - $\phi$ as an explicit named map — useful if you reference one-hot encoding again later, or want to contrast it with a learned embedding $\phi_\theta$.
-
-   If you'd like, I can also write this assuming a *batched/matrix* formulation (i.e., stacking all $\tilde{\mathbf{x}}^{(k)}$ into a design matrix $\tilde{\mathbf{X}}$), which is common if your paper later discusses model architecture in matrix form.
+   \tilde{\mathbf{x}}^{(k)} = \mathbf{x}^{(k)} \oplus \mathbf{e}_{y^{(k))}}
+   = \begin{bmatrix} \mathbf{x}^{(k)} \\ \mathbf{e}_{y^{(k)}} \end{bmatrix}
+   \in \mathbb{R}^{d+n}.
