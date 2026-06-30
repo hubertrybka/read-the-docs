@@ -64,26 +64,26 @@ Run example with conda
 
 1. I want to test how the inclusion of datapoints from *Mus musculus* and *Rattus norvegicus*-based assays into a *Homo sapiens* dataset influences the performance of LightGBM classifiers trained to identify human acetylcholinesterase (AChE) inhibitors among small molecules.
 
-I want to input pre-optimized hyperparameters for the model, utilize scaffold-based train-test split strategy, represent the molecules using ECFP4 fingerprints and employ a single-end LightGBM classifier alogrithm.
+   I want to input pre-optimized hyperparameters for the model, utilize scaffold-based train-test split strategy, represent the molecules using ECFP4 fingerprints and employ a single-end LightGBM classifier alogrithm.
  
-.. code-block:: shell
+   .. code-block:: shell
 
-   uv run process.py --cfg configs/examples/train_lgbm.gin
-   # or
-   python -m process --cfg configs/examples/train_lgbm.gin
-   ...
+      uv run process.py --cfg configs/examples/train_lgbm.gin
+      # or
+      python -m process --cfg configs/examples/train_lgbm.gin
+      ...
 
-Take a look at ''configs/examples/train_lgbm.gin'', as it's structure corresponds to the exact setup described above. 
+   Take a look at ''configs/examples/train_lgbm.gin'', as it's structure corresponds to the exact setup described above. 
 **This is the general config for an ADMET-Xspec experiment in which ML models would be trained and/or evaluated.** The build process for a config file describing our desired experiment will be discussed in next chapters.
 
 2. I want to optimize the hyperaparameters and train an RF regressor - tasked with the prediction of human AChE inhibitory activity of small molecules (as IC50 values). In my pipeline I want to include a scaffold splitter, a count ECFP featurizer and a single-end RF regression model. I want to train on 'Homo sapiens'-derived data only.
  
-.. code-block:: shell
-
-   uv run process.py --cfg configs/examples/train_rf_optimize.gin
-   # or
-   python -m process --cfg configs/examples/train_rf_optimize.gin
-   ...
+   .. code-block:: shell
+   
+      uv run process.py --cfg configs/examples/train_rf_optimize.gin
+      # or
+      python -m process --cfg configs/examples/train_rf_optimize.gin
+      ...
 
 3. I want to test if training multiend predictor
 
