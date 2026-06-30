@@ -1,13 +1,17 @@
-Welcome to Lumache's documentation!
-===================================
+Welcome to ADMET-Xspec's documentation
+======================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**ADMET-XSpec** is an open-source tool that facilitates systematic cross-species data integration for training ADMET
+(Absorption, Distribution, Metabolism, Excretion, and Toxicity) prediction models. **The tool is designed to help
+researchers assess and understand the translatability of ADMET parameters measured in non-human assays in the context
+of human drug development.**
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+ADMET-XSpec implements a comprehensive workflow that includes data preprocessing, feature engineering, model training,
+and evaluation. ADMET-XSpec allows for the evaluation of predictive models trained on human data augmented by non-human
+data points, leveraging a selection of machine learning algorithms, feature extraction techniques and additional
+data preprocessing steps.
+
+Check out the :doc:`quickstart` section for installation instructions.
 
 .. note::
 
@@ -18,5 +22,6 @@ Contents
 
 .. toctree::
 
+   quickstart
    usage
    api
