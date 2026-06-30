@@ -8,7 +8,7 @@ Installation
 
 ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
 
-First, clone the repository: 
+First, clone the repository:
 
 .. code-block:: console
    
