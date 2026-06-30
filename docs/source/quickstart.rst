@@ -42,7 +42,7 @@ Conda setup
    
    pip install -r requirements.txt
    
-   # Dev dependencies
+   # dev dependencies
    pre-commit install
 
 Run example with conda
