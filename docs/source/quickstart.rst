@@ -77,11 +77,8 @@ Take a look at ''configs/examples/train_lgbm.gin'', as it's structure correspond
 
 .. note::
    In ADMET-Xspec, there is a possibility to train multiend predictors of heterogenous data. Each data point, represented by a vector 
-   
-   
-Here's a version styled the way you'd see notation introduced in an ML paper (e.g., in a "Preliminaries" or "Notation" subsection of an Introduction):
 
-.. latex:samepage:
+.. math::
 
    Let $\mathcal{D} = \{(\mathbf{x}^{(k)}, y^{(k)})\}_{k=1}^{m}$ denote a dataset of $m$ samples, where $\mathbf{x}^{(k)} \in \mathbb{R}^d$ is a $d$-dimensional feature vector and $y^{(k)} \in \mathcal{Y} = \{1, \dots, n\}$ is its associated categorical label drawn from a set of $n$ classes.
 
@@ -98,10 +95,10 @@ Here's a version styled the way you'd see notation introduced in an ML paper (e.
    where $\oplus$ denotes vector concatenation. The resulting dataset $\tilde{\mathcal{D}} = \{\tilde{\mathbf{x}}^{(k)}\}_{k=1}^m \subset \mathbb{R}^{d+n}$ embeds label information directly into the input representation, which we use as input to [your model/method] in the following sections.
 
 
-**Notes on conventions used:**
-- Bold lowercase ($\mathbf{x}$, $\mathbf{e}_y$) for vectors — standard in ML papers (vs. plain italics for scalars).
-- Calligraphic font ($\mathcal{D}$, $\mathcal{Y}$) for sets/datasets.
-- Superscript $(k)$ for sample indexing, to avoid clashing with subscripts used for vector components.
-- $\phi$ as an explicit named map — useful if you reference one-hot encoding again later, or want to contrast it with a learned embedding $\phi_\theta$.
+   **Notes on conventions used:**
+   - Bold lowercase ($\mathbf{x}$, $\mathbf{e}_y$) for vectors — standard in ML papers (vs. plain italics for scalars).
+   - Calligraphic font ($\mathcal{D}$, $\mathcal{Y}$) for sets/datasets.
+   - Superscript $(k)$ for sample indexing, to avoid clashing with subscripts used for vector components.
+   - $\phi$ as an explicit named map — useful if you reference one-hot encoding again later, or want to contrast it with a learned embedding $\phi_\theta$.
 
-If you'd like, I can also write this assuming a *batched/matrix* formulation (i.e., stacking all $\tilde{\mathbf{x}}^{(k)}$ into a design matrix $\tilde{\mathbf{X}}$), which is common if your paper later discusses model architecture in matrix form.
+   If you'd like, I can also write this assuming a *batched/matrix* formulation (i.e., stacking all $\tilde{\mathbf{x}}^{(k)}$ into a design matrix $\tilde{\mathbf{X}}$), which is common if your paper later discusses model architecture in matrix form.
