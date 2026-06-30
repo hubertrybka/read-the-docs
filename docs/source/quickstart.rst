@@ -12,6 +12,7 @@ First, clone the repository:
 
    git clone https://github.com/admet-xspec/admet-xspec.git
    cd admet-xspec
+   ...
 
 UV setup
 --------
@@ -23,12 +24,14 @@ Then, have uv register a .venv within the current directory and install packages
    
    uv init .
    uv sync
+   ...
 
 Running example with uv:
 
 .. code-block:: shell
    
    uv run process.py --cfg configs/examples/train_lgbm.gin
+   ...
 
 Conda setup
 -----------
@@ -43,6 +46,7 @@ Conda setup
    
    # dev dependencies
    pre-commit install
+   ...
 
 Run example with conda
  
@@ -52,10 +56,11 @@ Run example with conda
    conda activate admet_xspec
    
    python -m process --cfg configs/examples/train_lgbm.gin
+   ...
 
 
-Three experiments you can run right away
-----------------------------------------
+3 Example experiments to run
+----------------------------
 
 1. I want to test how the inclusion of datapoints from *Mus musculus* and *Rattus norvegicus*-based assays into a *Homo sapiens* dataset influences the performance of LightGBM classifiers trained to identify human acetylcholinesterase (AChE) inhibitors among small molecules.
 
@@ -66,6 +71,7 @@ I want to input pre-optimized hyperparameters for the model, utilize scaffold-ba
    uv run process.py --cfg configs/examples/train_lgbm.gin
    # or
    python -m process --cfg configs/examples/train_lgbm.gin
+   ...
 
 Take a look at ''configs/examples/train_lgbm.gin'', as it's structure corresponds to the exact setup described above. 
 **This is the general config for an ADMET-Xspec experiment in which ML models would be trained and/or evaluated.** The build process for a config file describing our desired experiment will be discussed in next chapters.
@@ -77,22 +83,15 @@ Take a look at ''configs/examples/train_lgbm.gin'', as it's structure correspond
    uv run process.py --cfg configs/examples/train_rf_optimize.gin
    # or
    python -m process --cfg configs/examples/train_rf_optimize.gin
+   ...
 
 3. I want to test if training multiend predictor
 
 .. note::
-   In ADMET-Xspec, there is a possibility to train multiend predictors on heterogenous data. Each data point, represented by a vector 
+   In ADMET-Xspec, there is a possibility to train multiend predictors on heterogenous data. Each data point, represented by a vector
+   :math:`\mathcal{D} = \{(\mathbf{x}^{(k)}, y^{(k)})\}_{k=1}^{m}` be a dataset of
+   ...
 
 Let :math:`\mathcal{D} = \{(\mathbf{x}^{(k)}, y^{(k)})\}_{k=1}^{m}` be a dataset of
    :math:`m` samples with features :math:`\mathbf{x}^{(k)} \in \mathbb{R}^d` and labels
    :math:`y^{(k)} \in \{1, \dots, n\}`.
-
-
-Each label is one-hot encoded via :math:`\mathbf{e}_y \in \{0,1\}^n`, where
-:math:`(\mathbf{e}_y)_i = \delta_{iy}`. The augmented input is the concatenation
-
-.. math::
-
-   \tilde{\mathbf{x}}^{(k)} = \mathbf{x}^{(k)} \oplus \mathbf{e}_{y^{(k))}}
-   = \begin{bmatrix} \mathbf{x}^{(k)} \\ \mathbf{e}_{y^{(k)}} \end{bmatrix}
-   \in \mathbb{R}^{d+n}.
