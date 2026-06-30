@@ -1,4 +1,4 @@
-Quick start
+Quick Start
 ===========
 
 .. _installation:
@@ -6,15 +6,15 @@ Quick start
 Installation
 ------------
 
+ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
+
 First, clone the repository: 
 .. code-block:: console
 
-   git clone https://github.com/hubertrybka/admet-prediction.git
-   cd admet-prediction
+   git clone https://github.com/admet-xspec/admet-xspec.git
+   cd admet-xspec
 
-ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
-
-uv setup
+UV setup
 --------
 
 Follow the "Install uv" step at the [official uv docs](https://docs.astral.sh/uv/#__tabbed_1_1) to set up uv.
@@ -31,7 +31,7 @@ Running example with uv:
 
    uv run process.py --cfg configs/examples/train_lgbm.gin
 
-conda setup
+Conda setup
 -----------
 
 .. code-block:: console
