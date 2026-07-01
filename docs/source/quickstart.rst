@@ -56,8 +56,8 @@ Run demo experiment with Conda:
    python -m process --cfg configs/examples/train_lgbm.gin
 
 
-3 Example experiments to run
-----------------------------
+Three examples to run now
+-------------------------
 
 1. I want to test how the inclusion of datapoints from *Mus musculus* and *Rattus norvegicus*-based assays into a *Homo sapiens* dataset influences the performance of LightGBM classifiers trained to identify human acetylcholinesterase (AChE) inhibitors among small molecules.
 
