@@ -4,13 +4,11 @@ Quick Start
 Installation
 ------------
 
-ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
-
-First, clone the repository:
+ADAMET-XSpec can be set up with both ``uv`` and ``conda``. Clone the repository and navigate to its directory.
 
 .. code:: bash
-   git clone https://github.com/admet-xspec/admet-xspec.git
-   cd admet-xspec
+   `git clone https://github.com/admet-xspec/admet-xspec.git`
+   `cd admet-xspec`
 
 UV setup
 --------
@@ -21,8 +19,8 @@ Follow the *Install uv* guide at the `uv docs`_ to set up uv.
 Then, have uv register a .venv within the current directory and install packages from the lockfile:
 
 .. code:: bash
-   uv init .
-   uv sync
+   `uv init .`
+   `uv sync`
 
 Running demo experiment with uv:
 
