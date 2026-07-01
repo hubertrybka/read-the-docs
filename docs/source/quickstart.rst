@@ -8,10 +8,9 @@ ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
 
 First, clone the repository:
 
-.. code-block:: shell
+.. code:: bash
    git clone https://github.com/admet-xspec/admet-xspec.git
    cd admet-xspec
-
 
 UV setup
 --------
@@ -21,13 +20,13 @@ UV setup
 Follow the *Install uv* guide at the `uv docs`_ to set up uv.
 Then, have uv register a .venv within the current directory and install packages from the lockfile:
 
-.. code-block:: shell
+.. code:: bash
    uv init .
    uv sync
 
 Running demo experiment with uv:
 
-.. code-block:: shell
+.. code:: bash
    uv run process.py --cfg configs/examples/train_lgbm.gin
 
 Conda setup
@@ -36,7 +35,7 @@ Conda setup
 .. _miniconda: https://www.anaconda.com/download/success?reg=skipped
 Install `miniconda`_ following the instructions for your operating system.
  
-.. code-block:: shell
+.. code:: bash
 
    conda create -n admet python=3.11.8
    conda activate xspec
@@ -49,7 +48,7 @@ Install `miniconda`_ following the instructions for your operating system.
 
 Run demo experiment with Conda:
  
-.. code-block:: shell
+.. code:: bash
 
    # if you haven't already:
    conda activate xspec
@@ -64,7 +63,7 @@ Run demo experiment with Conda:
 
    I want to input pre-optimized hyperparameters for the model, utilize scaffold-based train-test split strategy, represent the molecules using ECFP4 fingerprints and employ a single-end LightGBM classifier alogrithm.
  
-   .. code-block:: shell
+   .. code:: bash
 
       uv run process.py --cfg configs/examples/train_lgbm.gin
       # or
@@ -75,7 +74,7 @@ Run demo experiment with Conda:
 
 2. I want to optimize the hyperaparameters and train an RF regressor - tasked with the prediction of human AChE inhibitory activity of small molecules (as IC50 values). In my pipeline I want to include a scaffold splitter, a count ECFP featurizer and a single-end RF regression model. I want to train on 'Homo sapiens'-derived data only.
  
-   .. code-block:: shell
+   .. code:: bash
    
       uv run process.py --cfg configs/examples/train_rf_optimize.gin
       # or
