@@ -6,17 +6,16 @@ Installation
 
 ADAMET-XSpec can be set up with both ``uv`` and ``conda``. Clone the repository and navigate to its directory.
 
-
 .. code:: bash
+   
    git clone https://github.com/admet-xspec/admet-xspec.git
    cd admet-xspec
-
 
 UV setup
 --------
 
 
-.. _uv docs: https://docs.astral.sh/uv/getting-started/
+.. _`uv docs`: https://docs.astral.sh/uv/getting-started/
 
 
 Follow the *Install uv* guide at the `uv docs`_ to set up uv.
@@ -40,7 +39,7 @@ Conda setup
 
 .. _miniconda: https://www.anaconda.com/download/success?reg=skipped
 
-Install `miniconda`_ following the instructions for your operating system.
+Install miniconda_ following the instructions for your operating system.
 
  
 .. code:: bash
