@@ -57,10 +57,10 @@ Run a demo experiment with Conda:
    
    python -m process --cfg configs/examples/train_lgbm.gin
 
-Three examples to run now
--------------------------
+3 Experiments you can run now!
+------------------------------
 
-1. **I'm training a classifier for the prediction of human acetylcholinesterase (AChE) inhibitory action of organic molecules. I want to test how the inclusion of datapoints from mouse and rat-based AChE inhibition assays into my exclusively-human dataset influences performance of the model***
+1. **I'm training a classifier for the prediction of human acetylcholinesterase (AChE) inhibitory action of organic molecules. I want to test how the inclusion of datapoints from mouse and rat-based AChE inhibition assays into my exclusively-human dataset influences performance of the model**
 
    I want to input pre-optimized hyperparameters for the model, utilize scaffold-based train-test split strategy, represent the 
    molecules using ECFP4 fingerprints and employ a LightGBM classifier alogrithm.
@@ -88,13 +88,20 @@ Three examples to run now
       # or
       python -m process --cfg configs/examples/train_rf_optimize.gin
 
-3. **I have a heterogenous dataset of IC50-labeled Monoamine oxidase A (MAO-A) inhibitors, obtained as a naive concatenation of the rat and the human-derived data.** I want to explore how **attributted learning** affects the predictive power of the trained regressor on human test data. I want to utilize scaffold split, KRFP (Klekota & Roth FP) featurizer, < 95% tanimoto similarity filter for the rat data (against the whole human set) and an RF regressor in the attributed leatning mode.
+3. **I have a heterogenous dataset of IC50-labeled Monoamine oxidase A (MAO-A) inhibitors, obtained as a naive concatenation of the rat and the human-derived data.** I want to explore how **attributted learning** affects the predictive power of the trained regressor on human test data. 
+
+   I want to utilize scaffold split, KRFP (Klekota & Roth FP) featurizer, < 95% tanimoto similarity filter for the rat data (against 
+   the whole human set) and an RF regressor in the attributed leatning mode.
 
    .. note::
       When working with heterogenous datasets (concatented from two or more data sources), ADMET-Xspec allows for using **attributed
-      learning** mode in training of classical ML models. In this mode, the :math:n unique **attributes** :math:`\mathbf{a}^{(k)} 
-      \to \mathcal{A}`(data source labels) found in the whole dataset are mapped to OHE vectors :math:`\phi: \mathcal{A}
+      learning** mode in training of classical ML models. In this mode, the :math:n unique **attributes** :math:`\mathbf{a}^{(k)} \to \mathcal{A}`(data source labels) found in the whole dataset are mapped to OHE vectors :math:`\phi: \mathcal{A}
       \to \{0,1\}^n`. For each data point, deascribed by a feature vector \mathbf{x}^{(k)} \in \mathbb{R}^d, we construct an augmented
       representation :math:`\tilde{\mathbf{x}} \in \mathbb{R}^{d+n}` by concatenating the feature vector with the OHE attribute. 
       A dataset of those augmented representations is then used in training.
-
+   
+   .. code:: bash
+      
+      uv run process.py --cfg configs/examples/train_rf_attributed.gin
+      # or
+      python -m process --cfg configs/examples/train_rf_attributed.gin
