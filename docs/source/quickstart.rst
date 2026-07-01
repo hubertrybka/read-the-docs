@@ -9,8 +9,9 @@ ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
 First, clone the repository:
 
 .. code-block:: shell
-   git clone https\://github.com/admet-xspec/admet-xspec.git
+   git clone https://github.com/admet-xspec/admet-xspec.git
    cd admet-xspec
+
 
 UV setup
 --------
@@ -24,7 +25,7 @@ Then, have uv register a .venv within the current directory and install packages
    uv init .
    uv sync
 
-Running example with uv:
+Running demo experiment with uv:
 
 .. code-block:: shell
    uv run process.py --cfg configs/examples/train_lgbm.gin
@@ -46,7 +47,7 @@ Install `miniconda`_ following the instructions for your operating system.
    # dev dependencies
    pre-commit install
 
-Run example with conda
+Run demo experiment with Conda:
  
 .. code-block:: shell
 
@@ -79,14 +80,12 @@ Run example with conda
       uv run process.py --cfg configs/examples/train_rf_optimize.gin
       # or
       python -m process --cfg configs/examples/train_rf_optimize.gin
-      ...
 
-3. I want to test if training multiend predictor
+3. I want to explore how the simultaneous prediction of 
 
 .. note::
    In ADMET-Xspec, there is a possibility to train multiend predictors on heterogenous data. Each data point, represented by a vector
    :math:`\mathcal{D} = \{(\mathbf{x}^{(k)}, y^{(k)})\}_{k=1}^{m}` be a dataset of
-   ...
 
 Let :math:`\mathcal{D} = \{(\mathbf{x}^{(k)}, y^{(k)})\}_{k=1}^{m}` be a dataset of
    :math:`m` samples with features :math:`\mathbf{x}^{(k)} \in \mathbb{R}^d` and labels
