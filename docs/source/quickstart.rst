@@ -9,25 +9,25 @@ ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
 First, clone the repository:
 
 .. code-block:: shell
-   git clone https://github.com/admet-xspec/admet-xspec.git
+   git clone https\://github.com/admet-xspec/admet-xspec.git
    cd admet-xspec
 
 UV setup
 --------
 
-Follow the "Install uv" step at the [official uv docs](https://docs.astral.sh/uv/#__tabbed_1_1) to set up uv.
+.. _uv docs: https://docs.astral.sh/uv/getting-started/
+
+Follow the *Install uv* guide at the `uv docs`_ to set up uv.
 Then, have uv register a .venv within the current directory and install packages from the lockfile:
 
 .. code-block:: shell
    uv init .
    uv sync
-   ...
 
 Running example with uv:
 
 .. code-block:: shell
    uv run process.py --cfg configs/examples/train_lgbm.gin
-   ...
 
 Conda setup
 -----------
@@ -38,24 +38,22 @@ Install `miniconda`_ following the instructions for your operating system.
 .. code-block:: shell
 
    conda create -n admet python=3.11.8
-   conda activate admet_xspec
+   conda activate xspec
    conda install rdkit seaborn conda-forge\:\:py-xgboost conda-forge\:\:ray-all
    
    pip install -r requirements.txt
    
    # dev dependencies
    pre-commit install
-   ...
 
 Run example with conda
  
 .. code-block:: shell
 
-   # if you haven't already\:
-   conda activate admet_xspec
+   # if you haven't already:
+   conda activate xspec
    
    python -m process --cfg configs/examples/train_lgbm.gin
-   ...
 
 
 3 Example experiments to run
@@ -70,7 +68,6 @@ Run example with conda
       uv run process.py --cfg configs/examples/train_lgbm.gin
       # or
       python -m process --cfg configs/examples/train_lgbm.gin
-      ...
 
    Take a look at ''configs/examples/train_lgbm.gin'', as it's structure corresponds to the exact setup described above. 
 **This is the general config for an ADMET-Xspec experiment in which ML models would be trained and/or evaluated.** The build process for a config file describing our desired experiment will be discussed in next chapters.
