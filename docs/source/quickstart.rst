@@ -96,10 +96,10 @@ Run a demo experiment with Conda:
    .. note::
       When working with heterogenous datasets (concatented from two or more data sources), ADMET-Xspec allows for using **attributed
       learning** mode in training of classical ML models. In this mode, the :math:n unique **attributes** :math:`\mathbf{a}^{(k)} \to \mathcal{A}`(data source labels) found in the whole dataset are mapped to OHE vectors :math:`\phi: \mathcal{A}
-      \to \{0,1\}^n`. For each data point, deascribed by a feature vector \mathbf{x}^{(k)} \in \mathbb{R}^d, we construct an augmented
+      \to \{0,1\}^n`. For each data point, deascribed by a feature vector :math:`\mathbf{x}^{(k)} \in \mathbb{R}^d`, we construct an augmented
       representation :math:`\tilde{\mathbf{x}} \in \mathbb{R}^{d+n}` by concatenating the feature vector with the OHE attribute. 
       A dataset of those augmented representations is then used in training.
-   
+
    .. code:: bash
       
       uv run process.py --cfg configs/examples/train_rf_attributed.gin

@@ -7,14 +7,14 @@ researchers assess and understand the translatability of ADMET parameters measur
 of human drug development.**
 
 ADMET-XSpec implements:
-   * Pre-processing and curation of molecular datasets for ADMET tasks.
-   * A selection of:
+   - Pre-processing and curation of molecular datasets for ADMET tasks.
+   - A selection of:
       - train-test splitting strategies
       - molecular representations
       - ML algorithms
-   * Both single-task and multiend training
-   * Exclusively ''gin'' config-based interface for easy preparation of large experiments
-   * Predictions for new samples using previously trained models
+   - Both single-task and multiend training
+   - Exclusively ''gin'' config-based interface for easy preparation of large experiments
+   - Predictions for new samples using previously trained models
 
 Check out the :doc:`quickstart` section for installation instructions.
 
