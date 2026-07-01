@@ -15,15 +15,13 @@ UV setup
 --------
 
 
-.. _`uv docs`: https://docs.astral.sh/uv/getting-started/
+.. _`official uv docs`: https://docs.astral.sh/uv/getting-started/
 
-
-Follow the *Install uv* guide at the `uv docs`_ to set up uv.
+Follow the guide at the `uv docs`_ to set up uv.
 Then, have uv register a .venv within the current directory and install packages from the lockfile:
 
-
 .. code:: bash
-   uv init .
+   uv init \.
    uv sync
 
 
