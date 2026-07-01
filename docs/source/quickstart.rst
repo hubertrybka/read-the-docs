@@ -9,10 +9,8 @@ ADAMET-XSpec can be set up with both ``uv`` and ``conda``.
 First, clone the repository:
 
 .. code-block:: shell
-
    git clone https://github.com/admet-xspec/admet-xspec.git
    cd admet-xspec
-   ...
 
 UV setup
 --------
@@ -21,7 +19,6 @@ Follow the "Install uv" step at the [official uv docs](https://docs.astral.sh/uv
 Then, have uv register a .venv within the current directory and install packages from the lockfile:
 
 .. code-block:: shell
-   
    uv init .
    uv sync
    ...
@@ -29,18 +26,20 @@ Then, have uv register a .venv within the current directory and install packages
 Running example with uv:
 
 .. code-block:: shell
-   
    uv run process.py --cfg configs/examples/train_lgbm.gin
    ...
 
 Conda setup
 -----------
+
+.. _miniconda: https://www.anaconda.com/download/success?reg=skipped
+Install `miniconda`_ following the instructions for your operating system.
  
 .. code-block:: shell
 
    conda create -n admet python=3.11.8
    conda activate admet_xspec
-   conda install rdkit seaborn conda-forge::py-xgboost conda-forge::ray-all
+   conda install rdkit seaborn conda-forge\:\:py-xgboost conda-forge\:\:ray-all
    
    pip install -r requirements.txt
    
@@ -52,7 +51,7 @@ Run example with conda
  
 .. code-block:: shell
 
-   # if you haven't already:
+   # if you haven't already\:
    conda activate admet_xspec
    
    python -m process --cfg configs/examples/train_lgbm.gin
