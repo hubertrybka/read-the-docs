@@ -60,7 +60,7 @@ Run a demo experiment with Conda:
 Three examples to run now
 -------------------------
 
-1. **I want to test how the inclusion of datapoints from *Mus musculus* and *Rattus norvegicus*-based assays into a *Homo sapiens* dataset influences the performance of LightGBM classifiers trained to identify human acetylcholinesterase (AChE) inhibitors among small molecules.**
+1. **I'm training a classifier for the prediction of human acetylcholinesterase (AChE) inhibitory action of organic molecules. I want to test how the inclusion of datapoints from mouse and rat-based AChE inhibition assays into my exclusively-human dataset influences performance of the model***
 
    I want to input pre-optimized hyperparameters for the model, utilize scaffold-based train-test split strategy, represent the molecules using ECFP4 fingerprints and employ a LightGBM classifier alogrithm.
  
@@ -73,7 +73,9 @@ Three examples to run now
    Have a look at ``configs/examples/train_lgbm.gin``, as its structure corresponds with the exact experiment setup described above. 
 **This is an example of the general config file for an ADMET-Xspec experiment in which ML models would be trained and/or evaluated.** The build process for a config file describing our desired experiment will be discussed in next chapters.
 
-2. **I want to optimize the hyperaparameters and train an RF regressor - tasked with the prediction of human AChE inhibitory activity of small molecules (as IC50 values). In my pipeline I want to include a scaffold splitter, a count ECFP featurizer and an RF regression model. I want to train on 'Homo sapiens'-derived data only.**
+2. **I have a dataset of small molecules labeled with their continuous IC50 (inhibitory activity) values towards human AChE. I want to identify a well-performing set of hyperparameter values for a chosen regressor, train, evaluate and save the highest-performing model.**
+
+   I want my pipeline to include scaffold splitter, ECFP-count featurizer and RF regression model. I want to train on human-derived data only.
  
    .. code:: bash
       
@@ -81,12 +83,13 @@ Three examples to run now
       # or
       python -m process --cfg configs/examples/train_rf_optimize.gin
 
-3. **I want to train an RF classifier on a heterogenous dataset of Monoamine oxidase A (MAO-A) inhibitors, one that is a concatenation of *Rattus norvegicus* and *Homo sapiens*-derived data. I want to explore how the process of labeling training data points with one-hot-encoded data source (rat, human) improves the predictive power of the classifier on exclusively-human test set.
+3. **I have a heterogenous dataset of IC50-labeled Monoamine oxidase A (MAO-A) inhibitors, obtained as a naive concatenation of the rat and the human-derived data.** I want to explore how **attributted learning** affects the predictive power of the trained regressor on human test data. I want to utilize scaffold split, KRFP (Klekota & Roth FP) featurizer, < 95% tanimoto similarity filter for the rat data (against the whole human set) and an RF regressor in the attributed leatning mode.
 
    .. note::
-      If working with heterogenous datasets that were concatented from two or more data sources, ADMET-Xspec allows for the option of
-      using **attributed learning** mode in training of classical ML models. In this mode, the :math:n **attributes** (data source 
-      identifiers) of all :math:k samples, :math:`\mathbf{a}^{(k)} \to \mathcal{A}`, are mapped to OHE vectors :math:`\phi: \mathcal{A}
-      \to \{0,1\}^n`. For each sample deascribed by a feature vector \mathbf{x}^{(k)} \in \mathbb{R}^d, we construct an augmented
-      representation :math:`\tilde{\mathbf{x}} \in \mathbb{R}^{d+n}` by concatenating the feature vector with the OHE attribute.
+      When working with heterogenous datasets (concatented from two or more data sources), ADMET-Xspec allows for using **attributed
+      learning** mode in training of classical ML models. In this mode, the :math:n unique **attributes** :math:`\mathbf{a}^{(k)} 
+      \to \mathcal{A}`(data source labels) found in the whole dataset are mapped to OHE vectors :math:`\phi: \mathcal{A}
+      \to \{0,1\}^n`. For each data point, deascribed by a feature vector \mathbf{x}^{(k)} \in \mathbb{R}^d, we construct an augmented
+      representation :math:`\tilde{\mathbf{x}} \in \mathbb{R}^{d+n}` by concatenating the feature vector with the OHE attribute. 
+      A dataset of those augmented representations is then used in training.
 
