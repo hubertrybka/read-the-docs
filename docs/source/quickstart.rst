@@ -21,7 +21,7 @@ Then, have ``uv`` register a .venv within the current directory and install pack
 
 .. code:: bash
    
-   uv init \.
+   uv init .
    uv sync
 
 Run a demo experiment with uv:
@@ -94,11 +94,12 @@ Run a demo experiment with Conda:
    the whole human set) and an RF regressor in the attributed leatning mode.
 
    .. note::
-      When working with heterogenous datasets (concatented from two or more data sources), ADMET-Xspec allows for training ML models in the **attributed learning** mode. According to this strategy, the :math:n unique **attributes** 
-      :math:`\mathbf{a}^{(k)} \to \mathcal{A}` (data source labels) found in the whole dataset are mapped to OHE vectors 
-      :math:`\phi: \mathcal{A} \to \{0,1\}^n`. For each data point, described by a feature vector 
-      :math:`\mathbf{x}^{(k)} \in \mathbb{R}^d`, we then construct an augmented representation 
+      When working with heterogenous datasets (concatented from two or more data sources), ADMET-Xspec allows for training ML models in the **attributed learning** mode. According to this strategy, the :math:`n` unique **attributes**
+      :math:`\mathbf{a}^{(k)} \to \mathcal{A}` (data source labels) found in the whole dataset are mapped to OHE vectors
+      :math:`\phi: \mathcal{A} \to \{0,1\}^n`. For each data point, described by a feature vector
+      :math:`\mathbf{x}^{(k)} \in \mathbb{R}^d`, we then construct an augmented representation
       :math:`\tilde{\mathbf{x}} \in \mathbb{R}^{d+n}` by concatenating the feature vector with the OHE attribute.
+
 
    .. code:: bash
       
