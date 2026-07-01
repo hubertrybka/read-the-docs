@@ -88,17 +88,17 @@ Run a demo experiment with Conda:
       # or
       python -m process --cfg configs/examples/train_rf_optimize.gin
 
-3. **I have a heterogenous dataset of IC50-labeled Monoamine oxidase A (MAO-A) inhibitors, obtained as a naive concatenation of the rat and the human-derived data.** I want to explore how **attributted learning** affects the predictive power of the trained regressor on human test data. 
+3. **I have a heterogenous dataset of IC50-labeled Monoamine oxidase A (MAO-A) inhibitors, obtained as a naive concatenation of the rat and the human-derived data.** I want to explore how **attributted learning** affects the predictive power of the trained regressor on human test data.
 
    I want to utilize scaffold split, KRFP (Klekota & Roth FP) featurizer, < 95% tanimoto similarity filter for the rat data (against 
    the whole human set) and an RF regressor in the attributed leatning mode.
 
    .. note::
-      When working with heterogenous datasets (concatented from two or more data sources), ADMET-Xspec allows for using **attributed
-      learning** mode in training of classical ML models. In this mode, the :math:n unique **attributes** :math:`\mathbf{a}^{(k)} \to \mathcal{A}`(data source labels) found in the whole dataset are mapped to OHE vectors :math:`\phi: \mathcal{A}
-      \to \{0,1\}^n`. For each data point, deascribed by a feature vector :math:`\mathbf{x}^{(k)} \in \mathbb{R}^d`, we construct an augmented
-      representation :math:`\tilde{\mathbf{x}} \in \mathbb{R}^{d+n}` by concatenating the feature vector with the OHE attribute. 
-      A dataset of those augmented representations is then used in training.
+      When working with heterogenous datasets (concatented from two or more data sources), ADMET-Xspec allows for training ML models in the **attributed learning** mode. According to this strategy, the :math:n unique **attributes** 
+      :math:`\mathbf{a}^{(k)} \to \mathcal{A}` (data source labels) found in the whole dataset are mapped to OHE vectors 
+      :math:`\phi: \mathcal{A} \to \{0,1\}^n`. For each data point, described by a feature vector 
+      :math:`\mathbf{x}^{(k)} \in \mathbb{R}^d`, we then construct an augmented representation 
+      :math:`\tilde{\mathbf{x}} \in \mathbb{R}^{d+n}` by concatenating the feature vector with the OHE attribute.
 
    .. code:: bash
       
