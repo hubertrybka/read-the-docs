@@ -62,7 +62,8 @@ Three examples to run now
 
 1. **I'm training a classifier for the prediction of human acetylcholinesterase (AChE) inhibitory action of organic molecules. I want to test how the inclusion of datapoints from mouse and rat-based AChE inhibition assays into my exclusively-human dataset influences performance of the model***
 
-   I want to input pre-optimized hyperparameters for the model, utilize scaffold-based train-test split strategy, represent the molecules using ECFP4 fingerprints and employ a LightGBM classifier alogrithm.
+   I want to input pre-optimized hyperparameters for the model, utilize scaffold-based train-test split strategy, represent the 
+   molecules using ECFP4 fingerprints and employ a LightGBM classifier alogrithm.
  
    .. code:: bash
       
@@ -71,11 +72,15 @@ Three examples to run now
       python -m process --cfg configs/examples/train_lgbm.gin
 
    Have a look at ``configs/examples/train_lgbm.gin``, as its structure corresponds with the exact experiment setup described above. 
-**This is an example of the general config file for an ADMET-Xspec experiment in which ML models would be trained and/or evaluated.** The build process for a config file describing our desired experiment will be discussed in next chapters.
+   **This is an example of the general config file for an ADMET-Xspec experiment in which ML models would be trained and/or evaluated.** 
+   The build process for a config file describing our desired experiment will be discussed in next chapters.
 
-2. **I have a dataset of small molecules labeled with their continuous IC50 (inhibitory activity) values towards human AChE. I want to identify a well-performing set of hyperparameter values for a chosen regressor, train, evaluate and save the highest-performing model.**
+2. **I have a dataset of small molecules labeled with their continuous IC50 (inhibitory activity) values towards human AChE. 
+   I want to identify a well-performing set of hyperparameter values for a chosen regressor, train, evaluate and save the 
+   best-performing model.**
 
-   I want my pipeline to include scaffold splitter, ECFP-count featurizer and RF regression model. I want to train on human-derived data only.
+   I want my pipeline to include scaffold splitter, ECFP-count featurizer and RF regression model. I want to train on human-derived 
+   data only.
  
    .. code:: bash
       
